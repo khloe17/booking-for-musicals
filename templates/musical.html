@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <form method="POST" action="" novalidate>
+        <h1>{{ musical["name"] }}</h1>
+        <div class="row2">
+            <div class="column_left">
+                <img src="{{ url_for('static', filename = musical['image']) }}" />
+            </div>
+            <br />
+            <div class="column_right">
+                <h4>Introduction</h4>
+                <p>
+                    Price: {{ musical["price"] }}
+                </p>
+                <p>
+                    Language: {{ musical["language"] }} </p>
+                <p>
+                    Date: {{ musical["date"] }}
+                </p>
+                <h4>Choice</h4>
+                <p>
+                    {{ form.hidden_tag() }}
+                    {{ form.language.label }}
+                    {{ form.language() }}
+                    {% for error in form.language.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.hidden_tag() }}
+                    {{ form.section.label }}
+                    {{ form.section() }}
+                    {% for error in form.language.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.hidden_tag() }}
+                    {{ form.seat.label }}
+                    {{ form.seat() }}
+                    {% for error in form.language.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </p>
+                <p>
+                    <button>
+                        <a href="{{ url_for('add_to_cart', musical_id=musical['musical_id']) }}">Add to cart</a>
+                    </button>
+                    <button>
+                        <a href="{{ url_for('delete_from_cart', musical_id=musical['musical_id']) }}">Delete from cart</a>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,108 @@
+<!DOTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <title>Web Development</title>
+    </head>
+    <body>
+        <nav>
+            <a class="navbar-brand" href="/">Musical</a>
+            <section id="navbarNav">
+                {% if g.user == "admin" %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('musicals') }}">Tickets</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('cart') }}">Cart</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('review') }}">Reviews</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('stock') }}">Stock</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('account') }}">Account</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('customer_details') }}">Customer Details</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="welcome">Welcome, {{ g.user }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+                {% elif g.user %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('musicals') }}">Tickets</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('cart') }}">Cart</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('review') }}">Reviews</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('account') }}">Account</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('contact_us') }}">Contact Us</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="welcome">Welcome, {{ g.user }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+                {% else %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('musicals') }}">Tickets</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('review') }}">Reviews</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('contact_us') }}">Contact Us</a>
+                    </li>
+
+                </ul>
+                <ul>
+                    <li>
+                        <a href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('register') }}">Register</a>
+                    </li>
+                </ul>
+                {% endif %}
+            </section>
+        </nav>
+
+        {% if messages %}
+            {{ message }}
+        {% endif %}
+
+        {% block main_content %}{% endblock %}
+    </body>
+</html>

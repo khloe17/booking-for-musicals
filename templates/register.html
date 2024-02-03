@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <div class="container">
+        <form action="" method="post" novalidate>
+            <h1>
+                Please Create Your Account
+            </h1>
+            {{ form.hidden_tag() }}
+            {{ form.user.label }}
+            <br />
+            {{ form.user(placeholder="User Name", size="50") }}
+            {% for error in form.user.errors %}
+                {{ error }}
+            {% endfor %}
+            <br />
+            {{ form.password.label }}
+            <br />
+            {{ form.password(placeholder="Password", size="50") }}
+            {% for error in form.password.errors %}
+                {{ error }}
+            {% endfor %}
+            <br />
+            {{ form.password2.label }}
+            <br />
+            {{ form.password2(placeholder="Confirm Password", size="50") }}
+            {% for error in form.password2.errors %}
+                {{ error }}
+            {% endfor %}
+            <br />
+            {{ form.email.label }}
+            <br />
+            {{ form.email(placeholder="Email", size="50") }}
+            {% for error in form.email.errors %}
+                {{ error }}
+            {% endfor %}
+            <br />
+            <div>
+                <h6>Already have the account?</h6>
+                <button>
+                    <a href="{{ url_for('login') }}">Login</a>
+                </button>
+            </div>
+            <br />
+            {{ form.submit }}
+        </form>
+    </div>
+
+{% endblock %}

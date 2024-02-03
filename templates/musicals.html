@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Our Musical Catalog</h1>
+    <div class="filter_musical">
+        <div class="filter">
+            <h4>Filter</h4>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                {{ form.filter.label }}
+                <br />
+                {{ form.filter() }}
+                {% for error in form.filter.errors %}
+                    {{ error }}
+                {% endfor %}
+        
+                <br />
+                {{ form.submit }}
+            </form>
+        </div>
+        <div class="musical_table">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Language</th>
+                    <th>Date</th>
+                    <th colspan="2">Options</th>
+                </tr>
+                {% for musical in musicals %}
+
+                    <tr>
+                        <td>{{ musical["name"] }}</td>
+                        <td>{{ musical["price"] }}</td>
+                        <td>{{ musical["language"] }}</td>
+                        <td>{{ musical["date"] }}</td>
+                        <td>
+                            <button>
+                                <a href="{{ url_for('musical', musical_id=musical['musical_id'] ) }}">More Info</a>
+                            </button>
+                        </td>
+                        <td>
+                            <button>
+                                <a href="{{ url_for('add_to_cart', musical_id=musical['musical_id']) }}">Purchase</a>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    
+{% endblock %}
+
+
+
+

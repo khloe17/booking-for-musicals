@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h3>Customer Details</h3>
+
+<div class="filter_musical">
+    <div class="filter">
+        <h4>Filter</h4>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            {{ form.filter_customer.label }}
+            <br />
+            {{ form.filter_customer() }}
+            {% for error in form.filter_customer.errors %}
+                {{ error }}
+            {% endfor %}
+    
+            <br />
+            {{ form.submit }}
+        </form>
+    </div>
+    <div class="musical_table">
+
+
+        <table>
+            <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Topic</th>
+                <th>Message</th>
+            </tr>
+            {% for item in contact_list %}
+
+                <tr>
+                    <td>{{ item["c_user"] }}</td>
+                    <td>{{ item["c_email"] }}</td>
+                    <td>{{ item["c_topic"] }}</td>
+                    <td>{{ item["c_message"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+

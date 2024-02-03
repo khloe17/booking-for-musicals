@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <div class="container">
+        {% if message %}
+        <p>{{message}}</p>
+        {% else %}
+        <form action="" method="post" novalidate>
+            <h1>
+                Contact Us
+            </h1>
+
+            <p>
+                {{ form.hidden_tag() }}
+                {{ form.user.label }}
+                <br />
+                {{ form.user(placeholder="User Name", size="50") }}
+                {% for error in form.user.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.email.label }}
+                <br />
+                {{ form.email(placeholder="Email", size="50") }}
+                {% for error in form.email.errors %}
+                    {{error}}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.topic.label }}
+                <br />
+                {{ form.topic }}
+                {% for error in form.topic.errors %}
+                    {{error}}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.message.label }}
+                <br />
+                {{ form.message(style='height: 150px; width: 300px') }}
+                {% for error in form.message.errors %}
+                    {{error}}
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.submit }}
+            </p>
+        </form>
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}

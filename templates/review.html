@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <head>
+        {% if title %}
+            <title>Review - {{ title }}</title>
+        {% else %}
+            <title>Review</title>
+        {% endif %}
+    </head>
+    <body>
+        <div class="container">
+            <form action="" method="post" novalidate>
+                <p>
+                    {{ form.hidden_tag() }}
+                    {{ form.title.label }}
+                    <br />
+                    {{ form.title(size="35") }}
+                    {% for error in form.title.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.content.label }}
+                    <br />
+                    {{ form.content(style='height: 150px; width: 300px') }}
+                    {% for error in form.content.errors %}
+                        {{error}}
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.submit }}
+                </p>
+            </form>
+        </div>
+
+        <article class="review">
+            {% for review in g.reviews %}
+                <div class="each_r">
+                    <div class="header">
+                        <div>
+                            <small>{{ g.user }}</small>
+                            <small>{{ review.date_reviewed }}</small>
+                        </div>
+                        <h4>{{ review.title }}</h4> <!--variable that holds the review title -->
+                        <p>{{ review.content }}</p>
+                    </div>
+                    <div class="container">
+                        <p><button><a href="{{ url_for('delete_review', title=review.title ) }}">Delete</a></button></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </article>
+    </body>
+{% endblock %}

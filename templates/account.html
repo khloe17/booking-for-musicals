@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>Account Info</h1>
+    <h4>User Information</h4>
+    <p>Name: {{ g.user }}</p>
+    <p>Email: {{ g.email }}</p>
+    <h4>Payment Information</h4>
+    <p>Payment method</p>
+    <form action="" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.pay() }}
+    <h4>Order Management</h4>
+    <p>Order Histroy</p>
+    <table>
+        <tr>
+            <th>Ticket</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        {% for item in order_list %}
+
+            <tr>
+                <td>{{ item["o_name"] }}</td>
+                <td>{{ item["o_price"] }}</td>
+                <td>{{ item["o_quantity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main_content %}
+
+    <h1>Stock list</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+            
+        </tr>
+        {% for item in stock_list %}
+
+            <tr>
+                <td>{{ item["name"] }}</td>
+                <td>
+                    <button><a href="{{ url_for('add_to_stock', musical_id= item["musical_id"] ) }}">+</a></button>
+                    {{ item["number"] }}
+                    <button><a href="{{ url_for('delete_from_stock', musical_id= item["musical_id"] ) }}">-</a></button>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+{% endblock %}

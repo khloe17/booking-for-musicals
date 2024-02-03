@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h2>Search Result for "{{ name }} {{ date }}"</h2>
+
+    {% if musicals %}
+        <ul>
+        {% for musical in musicals %}
+            <li>
+                <p>{{ musical["name"] }}</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=musical['musical_id'] ) }}">View Details</a>
+                </button>
+        </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found for "{{ name }}". Please try a different search term.</p>
+    {% endif %}
+{% endblock %}

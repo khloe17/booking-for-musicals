@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Your cart</h1>
+    {% if cart %}
+
+    
+        <p>
+            <table>
+                <tr>
+                    <th>Ticket</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Show Date</th>
+                    <th>Option</th>
+                </tr>
+                {% for musical_id in cart %}
+                <tr>
+                    <td>{{ names[musical_id ] }}</td>
+                    <td>
+                        <button><a href="{{ url_for('add_to_cart', musical_id= musical_id ) }}">+</a></button> {{ cart[musical_id] }} <button><a href="{{ url_for('delete_from_cart', musical_id=musical_id ) }}">-</a></button>
+                    </td>
+                    <td>{{ prices[musical_id] }}</td>
+                    <td>{{ dates[musical_id] }}</td>
+                    <td>
+                        <button><a href="{{ url_for('remove_from_cart', musical_id= musical_id ) }}">Delete</a></button>
+                    </td>
+                </tr>
+                {% endfor %}
+                
+            </table>
+        </p>
+
+    
+    <button><a href="{{ url_for('buy_tickets') }}">Buy Tickets</button>
+    <button><a href="{{ url_for('clear_cart') }}">Delete  All</a></button>
+    {% else %}
+        <p>Your cart is empty!<p>
+
+    {% endif %}
+
+{% endblock %}

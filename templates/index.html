@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <div class="search">
+        <form action="" method="post" novalidate>
+
+            {{ form.hidden_tag() }}
+            {{ form.name(placeholder="Search a show by name", size="65") }}
+            {% for error in form.name.errors %}
+                {{error}}
+            {% endfor %}
+    
+            {{ form.date(placeholder="Show Date(eg.2023-03-16)", size="30") }}
+            {% for error in form.date.errors %}
+                {{error}}
+            {% endfor %}
+
+            {{ form.submit() }}
+            </div>
+        </form>
+    </div>
+        {% if musicals %}
+            <table>
+            {% for musical in musicals %}
+                <tr>
+                    <td>{{ musical["name"] }}</td>
+                    <td>{{ musical["date"] }}</td>
+            {% endfor %}
+            </table>
+        {% endif %}
+
+    <article class="text">
+    <h2>Musical Theatre</h2>
+    <p class="text_intro">
+        Welcome to our musical theater, a place where music, drama, and dance come together to create unforgettable performances. Catch up on the latest theatre news and reviews, and book musical theatre tickets today.
+    </p>
+</article>
+
+    <div class="total_show">
+        <div class="show">
+            <img src="{{ url_for('static', filename = "vanity_s.jpg") }}" alt="poster" style="width:100%">
+            <div class="detail">
+                <p>The short story</p>
+                <p>€ 175</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=8 ) }}">View</a>
+                </button>
+            </div>
+        </div>
+        <div class="show">
+            <img src="{{ url_for('static', filename = "sunset_s.jpg") }}" alt="poster" style="width:100%" />
+            <div class="detail">
+                <p>Sunset</p>
+                <p>€ 125</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=4 ) }}">View</a>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="show">
+            <img src="{{ url_for('static', filename = "tower_s.jpg") }}" alt="poster" style="width:100%" />
+            <div class="detail">
+                <p>Tower in the west</p>
+                <p>€ 150</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=6 ) }}">View</a>
+                </button>
+
+            </div>
+        </div>
+        <div class="show">
+            <img src="{{ url_for('static', filename = "future_s.jpg") }}" alt="poster" style="width:100%" />
+            <div class="detail">
+                <p>Future life</p>
+                <p>€ 134</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=1 ) }}">View</a>
+                </button>
+
+            </div>
+        </div>
+        <div class="show">
+            <img src="{{ url_for('static', filename = "car_s.jpg") }}" alt="poster" style="width:100%" />
+            <div class="detail">
+                <p>Seven</p>
+                <p>€ 210</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=7 ) }}">View</a>
+                </button>
+            </div>
+        </div>
+        <div class="show">
+            <img src="{{ url_for('static', filename = "rome_s.jpg") }}" alt="poster" style="width:100%" />
+            <div class="detail">
+                <p>Old town in rome</p>
+                <p>€ 310</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=3 ) }}">View</a>
+                </button>
+
+            </div>
+        </div>
+        <div class="show">
+            <img src="{{ url_for('static', filename = "cat_s.jpg") }}" alt="poster" style="width:100%" />
+            <div class="detail">
+                <p>Cat</p>
+                <p>€ 134</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=5 ) }}">View</a>
+                </button>
+
+            </div>
+        </div>
+        <div class="show">
+            <img src="{{ url_for('static', filename = "friendship_s.jpg") }}" alt="poster" style="width:100%" />
+            <div class="detail">
+                <p>Friendship</p>
+                <p>€ 234</p>
+                <button>
+                    <a href="{{ url_for('musical', musical_id=2 ) }}">View</a>
+                </button>
+
+            </div>
+        </div>
+        <div class="news">
+            <img src="{{ url_for('static', filename = "auditorium.jpg") }}" alt="image of theatre" class="auditorium">
+            <section class="news_intro">
+                <h4 class="heading">News</h4>
+                <p>The historic Musical Theatre, a beloved landmark in the heart of downtown, is set to undergo a major renovation in the coming months. The iconic venue, which first opened in 1951, has played host to countless legendary performers over the years.</p>
+            </section>
+        </div>
+
+        <div class="row">
+            <section class="column">
+                <h4 class="heading">News</h4>
+                <p>The Power Of Love and Resilience Of The Human Spirit</p>
+                <img src="{{ url_for('static', filename = "barber.jpg") }}" alt="image of the barber" class="show1">
+            </section>
+            <section class="column">
+                <h4 class="heading">News</h4>
+                <p>Musical Life Came To Fruition Last Night</p>
+                <img src="{{ url_for('static', filename = "show.jpg") }}" alt="image of the show" class="show2">
+            </section>
+        </div>
+    </div>
+
+   
+
+
+
+
+
+    <!--
+    <p>
+        <a href="{{ url_for('musicals') }}">Our musicals</a>
+    </p>
+    <p>
+        <a href="{{ url_for('cart') }}">Your cart</a>
+    </p>
+    -->
+
+{% endblock %}

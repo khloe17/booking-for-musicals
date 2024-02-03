@@ -1,0 +1,269 @@
+/* Navigation Menu */
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    background-color: #212121;
+}
+
+nav>section {
+    display: flex;
+}
+
+nav>section>ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav>section>ul>li {
+    padding: 1em;
+}
+
+.welcome {
+    color: beige;
+}
+
+/* search */
+.search {
+    text-align: center;
+    margin-top: 2em;
+}
+
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* home page introduction */
+.text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+
+}
+
+.text_intro {
+    text-align: left;
+}
+
+
+/* show image design */
+.show {
+    width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.detail {
+    padding: 10px;
+}
+
+.show {
+    float: left;
+    padding: 0 6px;
+    width: 24.9999%;
+    margin: 6px 0;
+    box-sizing: border-box;
+
+}
+
+.total_show {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+
+/* news1 */
+.news {
+    width: 75%;
+    overflow: hidden;
+
+}
+
+.auditorium {
+    float: left;
+    width: 35%;
+}
+
+.news_intro {
+    float: right;
+    width: 60%;
+}
+
+.heading {
+    color: #cc2c2c;
+    font-weight: bold;
+}
+
+/* news2,3 */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row,
+.column {
+    box-sizing: border-box;
+}
+
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* table design */
+table {
+    border: 1px solid;
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: aliceblue;
+}
+
+.centre {
+    margin: 0 auto;
+}
+
+
+/* musical page */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row,
+.column {
+    box-sizing: border-box;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row2 {
+    display: flex;
+}
+
+
+
+
+/* review design */
+.review {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.header {
+    background-color: #E7E9EB;
+    padding: 10px;
+
+}
+
+.container {
+    padding: 10px;
+}
+
+/* two columns in musicals */
+.filter,
+.musical_table {
+    box-sizing: border-box;
+    float: left
+}
+
+.filter {
+    width: 25%;
+}
+
+.musical_table {
+    width: 75%;
+}
+
+
+.filter_musical:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* p m p */
+.column_left,
+.column_right {
+    box-sizing: border-box;
+    float: left;
+    float: left;
+    padding: 2em;
+
+}
+
+.row2::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* .column_left,
+.column_right {
+    box-sizing: border-box;
+    padding: 10px;
+
+}
+
+.column_left {
+    width: 45%;
+    float: left;
+
+}
+
+.column_right {
+    width: 25%;
+    float: right;
+
+}
+
+/* Clear floats after the columns */
+/* .row2:after {
+    content: "";
+    display: table;
+    clear: both;
+} */
